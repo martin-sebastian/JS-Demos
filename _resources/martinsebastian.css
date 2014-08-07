@@ -1,0 +1,130 @@
+@charset "UTF-8";
+/* CSS Document */
+
+h1 {
+	font-family: ltc-squareface;
+	font-size: 36px;
+	color: #FFF;
+	text-shadow: 1px 1px 1px black;
+	font-weight: normal;
+	text-align: center;
+}
+h2 {
+	font-family: ff-cocon-web-pro;
+	color: #63666b;
+	text-shadow: 1px 1px 1px black;
+	font-size: 24px;
+	font-weight: normal;
+	}
+h3 {
+	font-family: ltc-squareface;
+	color: #63666b;
+	text-shadow: 1px 1px 1px black;
+	font-size: 18px;
+	font-weight: normal;
+	}
+#linearBg2 {
+	height: 100%;
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: left;
+	padding: 10px;
+}
+#icon-bar{
+	height: 100%;
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: left;
+	padding: 10px;
+}
+#menu-bar{
+	height: 100%;
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: left;
+	padding: 10px;
+}
+#logo-bar {
+	height: 100%;
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: left;
+	padding: 10px;
+	background-color: #FFF;
+}
+#content {
+	height: 100%;
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: left;
+	padding: 10px;
+	background-color: #FFF;
+}
+#footer-bar {
+	height: 200px;
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	padding: 10px;
+	color: #FFF;
+}
+#notepad {
+	font-family: 'Permanent Marker', cursive;
+	height: 350px;
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	background-image: url(_images/notepad-bg.png);
+	background-color: #FFF;
+	padding: 10px;
+	color: #666;
+	text-align: left;
+}
+#name-orange {
+	color: #orange;
+}
+#name-white {
+	color: white;
+}
+#menu-bar {
+	color: #FFF;
+	text-decoration: none;
+	height: 64px;
+	font-size: 24px;
+}
+#menu-bar h1 {
+	color: #FFF;
+	text-decoration: none;
+	text-align: left;
+}
+#menu-bar a:hover {
+	color: #333;
+	text-decoration: none;
+}
+#icon {
+	clear: right;
+	float: left;
+	height: 64px;
+	width: 64px;
+}
+#title {
+	width: 730px;
+	float: right;
+	padding-top: 5px;
+	vertical-align: middle;
+}
+#sub-title {
+	height: 16px;
+	width: 730px;
+	float: right;
+	padding-top: 1px;
+	vertical-align: middle;
+	font-size: 14px;
+	color: #CCC;
+}

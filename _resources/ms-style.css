@@ -1,0 +1,186 @@
+@charset "UTF-8";
+/* CSS Document */
+
+	body {
+	background-image: url(_images/ms-header.gif);
+	background-repeat: no-repeat;
+	font-family: "ff-cocon-web-pro";
+	background-attachment: fixed;
+	background-position: 0px 0px;
+	background-color: #333;
+	}
+	h1	{
+	font-family: ff-cocon-web-pro;
+	font-size: 30px;
+	color: #333333;
+	font-weight: 500;
+	text-shadow: 0px 0px 0px gray;
+	}
+	h2	{
+	font-family: ff-cocon-web-pro;
+	font-size: 24px;
+	color: #333333;
+	font-weight: 500;
+	text-shadow: 0px 0px 0px gray;
+	}
+	h3	{
+	font-family: ff-cocon-web-pro;
+	font-size: 18px;
+	color: #333333;
+	font-weight: 200;
+	text-shadow: 0px 0px 0px gray;
+	}
+    #header h1 {
+	font-family: "ff-cocon-web-pro";
+	font-size: 30px;
+	color: #355E94;
+	padding-top: 20px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	font-weight: 500;
+	}
+	#header {
+	font-family: ff-cocon-web-pro;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	}
+	#header #sub-title {
+	font-family: ff-cocon-web-pro;
+	font-size: 18px;
+	color: #000;
+	padding-top: -10px;
+	padding-bottom: 10px;
+	}
+	#tag h3{
+	font-family: ff-cocon-web-pro;
+	font-size: 14px;
+	color: #000;
+	font-weight: 200;
+	line-height: 18px;
+	}
+	#head-bar {
+	color: #FFF;
+	background-color: #EEE;
+	padding-top: 5px;
+	padding-left: 5px;
+	height: 25px;
+	width: 100%;
+	position: fixed;
+	opacity:0.9;
+	 /* Safari 4-5, Chrome 1-9 */
+  	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#333));
+  
+ 	 /* Safari 5.1, Chrome 10+ */
+  	background: -webkit-linear-gradient(top, #666, #333);
+  
+  	/* Firefox 3.6+ */
+  	background: -moz-linear-gradient(top, #666, #333);
+  
+  	/* IE 10 */
+  	background: -ms-linear-gradient(top, #666, #333);
+  
+  	/* Opera 11.10+ */
+  	background: -o-linear-gradient(top, #666, #333);
+	box-shadow: 0px 0px 5px black;
+	}
+	#foot-bar {
+	background-color: #EEE;
+	padding: 10px;
+	height: 225px;
+	width: 100%;
+	position: scroll;
+	opacity:0.8;
+	 /* Safari 4-5, Chrome 1-9 */
+  	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333), to(#666));
+  
+ 	 /* Safari 5.1, Chrome 10+ */
+  	background: -webkit-linear-gradient(top, #333, #666);
+  
+  	/* Firefox 3.6+ */
+  	background: -moz-linear-gradient(top, #333, #666);
+  
+  	/* IE 10 */
+  	background: -ms-linear-gradient(top, #333, #666);
+  
+  	/* Opera 11.10+ */
+  	background: -o-linear-gradient(top, #333, #666);
+	
+	}
+.footer {
+	color: #FFF;
+	text-align: center;
+	padding: 5px;
+}
+.footer a {
+	color: #FFF;
+	text-align: center;
+	padding: 5px;
+}
+.footer a:hover, a:active {
+	color: #FFF;
+	text-align: center;
+	padding: 5px;
+}
+hr {
+	height: 0px;
+	width: 366px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #CCC;
+	border-bottom-color: #FFF;
+}
+#tag hr {
+	height: 0px;
+	width: 100%;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #CCC;
+	border-bottom-color: #FFF;
+}
+#foot-bar hr {
+	height: 0px;
+	width: 900px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #999;
+	border-bottom-color: #CCC;
+	text-align: center;
+}
+.head-bar {
+	vertical-align: middle;
+}
+#container {
+	background-image: url(_images/trans-bg2.png);
+	background-repeat: repeat;
+	background-color: #EEE;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+#social-icons img	{
+	padding: 1px;
+	}
+
+
+.visualization-box {
+	height: 420px;
+	width: 367px;
+	border: 1px solid #eee;
+	background-color: #FFF;
+	border-radius: 15px;
+	padding-top: 5px;
+	padding-left: 5px;
+}
+.shadow {
+  -moz-box-shadow:    2px 2px 5px 2px #ccc;
+  -webkit-box-shadow: 2px 2px 5px 2px #ccc;
+  box-shadow:         2px 2px 5px 2px #ccc;
+}
+#facebook-frame iframe	{
+	border:solid 1px #CCCCCC;
+	}

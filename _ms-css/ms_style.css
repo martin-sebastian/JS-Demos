@@ -1,0 +1,70 @@
+/* My Style for Martin Sebastian Co root site */
+.container h1, h2 {
+    font-family: 'Audiowide', cursive;
+}
+.navbar-brand {
+    font-family: 'Audiowide', cursive;
+}
+aside {
+    float: right;
+}
+.social-imgs img {
+    opacity: 1.0;
+}
+.social-imgs img:hover {
+    opacity: 0.8;
+}
+body  {
+  font-size: medium;
+}
+@media (max-width: 1000px) {
+  body { font-size: medium; }
+}
+@media (max-width: 500px) {
+  body { font-size: small; }
+}
+h1.my-name  {
+  font-size: xxx-large;
+}
+@media (max-width: 1000px) {
+  h1.my-name { font-size: xx-large; }
+}
+@media (max-width: 500px) {
+  h1.my-name { font-size: x-large; }
+}
+h2  {
+  font-size: x-large;
+}
+@media (max-width: 1000px) {
+  h2 { font-size: large; }
+}
+@media (max-width: 500px) {
+  h2 { font-size: medium; }
+}
+h3  {
+  font-size: x-large;
+}
+@media (max-width: 1000px) {
+h3 { font-size: large; }
+}
+@media (max-width: 500px) {
+h3 { font-size: medium; }
+}
+p  {
+  font-size: large;
+}
+@media (max-width: 1000px) {
+  p { font-size: medium; }
+}
+@media (max-width: 500px) {
+  p { font-size: small; }
+}
+td  {
+  font-size: medium;
+}
+@media (max-width: 1000px) {
+  td { font-size: small; }
+}
+@media (max-width: 500px) {
+  td { font-size: x-small; }
+}
