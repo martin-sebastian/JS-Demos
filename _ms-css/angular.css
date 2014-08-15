@@ -1,0 +1,109 @@
+/* My Style for Martin Sebastian Co root site */
+.container h1, h2 {
+    font-family: 'Audiowide', cursive;
+}
+.navbar-brand {
+    font-family: 'Audiowide', cursive;
+}
+aside {
+    float: right;
+}
+.social-imgs img {
+    opacity: 1.0;
+}
+.social-imgs img:hover {
+    opacity: 0.8;
+}
+body  {
+  font-size: medium;
+}
+@media (max-width: 1000px) {
+  body { font-size: medium; }
+}
+@media (max-width: 500px) {
+  body { font-size: small; }
+}
+h1.my-name  {
+  font-size: xxx-large;
+}
+@media (max-width: 1000px) {
+  h1.my-name { font-size: xx-large; }
+}
+@media (max-width: 500px) {
+  h1.my-name { font-size: x-large; }
+}
+h2  {
+  font-size: x-large;
+}
+@media (max-width: 1000px) {
+  h2 { font-size: large; }
+}
+@media (max-width: 500px) {
+  h2 { font-size: medium; }
+}
+h3  {
+  font-size: x-large;
+}
+@media (max-width: 1000px) {
+h3 { font-size: large; }
+}
+@media (max-width: 500px) {
+h3 { font-size: medium; }
+}
+p  {
+  font-size: large;
+}
+@media (max-width: 1000px) {
+  p { font-size: medium; }
+}
+@media (max-width: 500px) {
+  p { font-size: small; }
+}
+td  {
+  font-size: medium;
+}
+@media (max-width: 1000px) {
+  td { font-size: small; }
+}
+@media (max-width: 500px) {
+  td { font-size: x-small; }
+}
+.jumbotron {
+    background-image: url(../_img/pharmacist.jpg);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: 0px 0px 0px #666;
+}
+.angular-icon {
+    opacity: 0.3;
+}
+.angular-icon:hover {
+    opacity: 0.8;
+}
+.angular-icon img {
+    margin: 0px;
+}
+#angular-icon  {
+  width: 350px;
+}
+@media (max-width: 1000px) {
+  #angular-icon { width: 160px; }
+}
+@media (max-width: 500px) {
+  #angular-icon { width: 70px; }
+}
+#mapcanvas {
+    border-radius: 5px;
+    border: solid 1px #CCC;
+}
+#pharm-record  {
+  width: 33%;
+}
+@media (max-width: 1000px) {
+  #pharm-record { width: 50%; }
+}
+@media (max-width: 500px) {
+  #pharm-record { width: 100%; }
+}

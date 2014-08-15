@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Martin Sebastian Skrzypczak">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <title>Angular JS Demo App by Martin Sebastian</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" rel="stylesheet">
+        
+        <!-- Angular JS -->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
+        
+        <!-- Google fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+        <!-- Custom styles for this template -->
+        <style>body{padding-top:50px;}.starter-template{padding:40px 15px;text-align:center;}</style>
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        
+        <!-- Martins CSS -->
+        <link href="../_ms-css/angular.css" rel="stylesheet">
+
+    </head>
+
+    <body ng-app="">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Martin<span style="color: #CCC;">Sebastian</span>_></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="../_about/">About Me</a></li>
+                        <li><a href="../_contact/">Contact Me</a></li>
+                        <li class="active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-link"></span> <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                              <li class="dropdown-header"><b>Angular JS Demos</b></li>
+                              <li><a href="/_angular/">Sample Pharmacist Locator</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header"><b>Integrations</b></li>
+                              <li><a href="/_stripe/">Stripe Credit Card Payment</a></li>
+                                <li><a href="/_square/">Square Shopping Cart</a></li>
+                                <li class="divider"></li>
+                              <li class="dropdown-header">My Websites</li>
+                                <li><a href="http://ecfreefly.com" target="_blank">East Coast Freefly</a></li>
+                              <li><a href="http://tunnelcoach.com" target="_blank">TunnelCoach.com</a></li>
+                              <li><a href="http://myskydives.com" target="_blank">My Skydives</a></li>
+                            </ul>
+                          </li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        
+        <div class="container"><br />
+            <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <p><span id="status"> Please Hit "Allow" to set your Location...</span></p>
+            </div>
+            <!-- Main jumbotron for a primary marketing message or call to action -->
+              <div class="">
+                
+                <article></article>
+                    <script>
+                    function success(position) {
+                      var s = document.querySelector('#status');
+
+                      if (s.className == 'success') {
+                        // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
+                        return;
+                      }
+
+                      s.innerHTML = "Thanks - Below are Pharmacists in your area!";
+                      s.className = 'success';
+
+                      var mapcanvas = document.createElement('div');
+                      mapcanvas.id = 'mapcanvas';
+                      mapcanvas.style.height = '200px';
+                      mapcanvas.style.width = '100%';
+
+                      document.querySelector('article').appendChild(mapcanvas);
+
+                      var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                      var myOptions = {
+                        zoom: 15,
+                        center: latlng,
+                        mapTypeControl: false,
+                        navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                      };
+                      var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+
+                      var marker = new google.maps.Marker({
+                          position: latlng, 
+                          map: map, 
+                          title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
+                      });
+                    }
+
+                    function error(msg) {
+                      var s = document.querySelector('#status');
+                      s.innerHTML = typeof msg == 'string' ? msg : "failed";
+                      s.className = 'fail';
+
+                      // console.log(arguments);
+                    }
+
+                    if (navigator.geolocation) {
+                      navigator.geolocation.getCurrentPosition(success, error);
+                    } else {
+                      error('not supported');
+                    }
+
+                    </script>
+                </div> <!-- End jumbotron -->
+            <br />
+                <div class="panel panel-default">
+                  <!-- Default panel contents -->
+                  <div class="panel-heading">
+                       <div class="row">
+                      <div class="col-lg-12">
+                        <div class="input-group">
+                          <input ng-model="searchText" placeholder="Filter by name, phone, email, distance, or address..." type="text" class="form-control">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button>
+                          </span>
+                        </div><!-- /input-group -->
+                      </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                      </div>
+                  <div class="panel-body">
+                      
+                    <div ng-init="friends = [{name:'John Smith', phone:'555-1276', email:'john@smith.com', address:'105 Main St. Tampa, FL 33614', distance:'1 mile'},
+                                            {name:'Mary Nelson', phone:'800-4237', email:'mary@nelson.com', address:'15 1ST St. Tampa, FL 33614', distance:'3 miles'},
+                                            {name:'Mike Porter', phone:'555-4321', email:'mport@gmail.com', address:'1 Plaza St. Tampa, FL 33614', distance:'5 miles'},
+                                            {name:'Adam Bloomfield', phone:'555-5678', email:'abloom@gmail.com', address:'311 Central Ave. Tampa, FL 33614', distance:'7 miles'},
+                                            {name:'Julie Molenski', phone:'555-8765', email:'mol1978@gmail.com', address:'222 Dale Mabry. Tampa, FL 33614', distance:'9 miles'},
+                                            {name:'Mary Nelson', phone:'800-4237', email:'mary1@nelson.com', address:'15 1ST St. Tampa, FL 33614', distance:'2 miles'},
+                                            {name:'Michael Porter', phone:'555-4321', email:'mport1@gmail.com', address:'100 Plaza St. Tampa, FL 33614', distance:'3 miles'},
+                                            {name:'Andy Bloomfield', phone:'555-5678', email:'abloom1@gmail.com', address:'3151 Central Ave. Tampa, FL 33614', distance:'4 miles'},
+                                            {name:'Julie Moller', phone:'555-8765', email:'mol1978@gmail.com', address:'212 Dale Mabry. Tampa, FL 33614', distance:'6 miles'},
+                                            {name:'Mary Nielson', phone:'800-4237', email:'mary78@nelson.com', address:'15 11ST St. Tampa, FL 33614', distance:'8 miles'},
+                                            {name:'Mike Parker', phone:'555-4321', email:'mport78@gmail.com', address:'8 Plaza St. Tampa, FL 33614', distance:'10 miles'},
+                                            {name:'Adam Bloomberg', phone:'555-5678', email:'abloom78@gmail.com', address:'371 Central Ave. Tampa, FL 33614', distance:'12 miles'},
+                                            {name:'Julie Soho', phone:'555-8765', email:'1mol1978@gmail.com', address:'242 Dale Mabry. Tampa, FL 33614', distance:'11 miles'},
+                                            {name:'Mary Nelson', phone:'800-4237', email:'mary@nelson.com', address:'15 1ST St. Clearwater, FL 33614', distance:'7 miles'},
+                                            {name:'Mike Porter', phone:'555-4321', email:'mport@gmail.com', address:'1 Plaza St. Clearwater, FL 33614', distance:'2 miles'},
+                                            {name:'Adam Bloomfield', phone:'555-5678', email:'abloom@gmail.com', address:'311 Central Ave. Clearwater, FL 33614', distance:'15 miles'},
+                                            {name:'Julie Molenski', phone:'555-8765', email:'mol1978@gmail.com', address:'222 Dale Mabry. Clearwater, FL 33614', distance:'19 miles'},
+                                            {name:'Mary Nelson', phone:'800-4237', email:'mary1@nelson.com', address:'15 1ST St. Clearwater, FL 33614', distance:'17 miles'},
+                                            {name:'Michael Porter', phone:'555-4321', email:'mport1@gmail.com', address:'100 Plaza St. Clearwater, FL 33614', distance:'5 miles'},
+                                            {name:'Andy Bloomfield', phone:'555-5678', email:'abloom1@gmail.com', address:'3151 Central Ave. Clearwater, FL 33614', distance:'22 miles'},
+                                            {name:'Julie Moller', phone:'555-8765', email:'mol1978@gmail.com', address:'212 Dale Mabry. Clearwater, FL 33614', distance:'23 miles'},
+                                            {name:'Mary Nielson', phone:'800-4237', email:'mary78@nelson.com', address:'15 11ST St. Clearwater, FL 33614', distance:'24 miles'},
+                                            {name:'Mike Parker', phone:'555-4321', email:'mport78@gmail.com', address:'8 Plaza St. Clearwater, FL 33614', distance:'34 miles'},
+                                            {name:'Adam Bloomberg', phone:'555-5678', email:'abloom78@gmail.com', address:'371 Central Ave. Clearwater, FL 33614', distance:'39 miles'},
+                                            {name:'Julie Soho', phone:'555-8765', email:'1mol1978@gmail.com', address:'242 Dale Mabry. Clearwater, FL 33614', distance:'2 miles'},
+                                  
+                                            {name:'Mary Nelson', phone:'800-4237', email:'mary@nelson.com', address:'15 1ST St. Saint Petersburg, FL 33614', distance:'28 miles'},
+                                            {name:'Mike Porter', phone:'555-4321', email:'mport@gmail.com', address:'1 Plaza St. Saint Petersburg, FL 33614', distance:'34 miles'},
+                                            {name:'Adam Bloomfield', phone:'555-5678', email:'abloom@gmail.com', address:'311 Central Ave. Saint Petersburg, FL 33614', distance:'43 miles'},
+                                            {name:'Julie Molenski', phone:'555-8765', email:'mol1978@gmail.com', address:'222 Dale Mabry. Saint Petersburg, FL 33614', distance:'44 miles'},
+                                            {name:'Mary Nelson', phone:'800-4237', email:'mary1@nelson.com', address:'15 1ST St. Saint Petersburg, FL 33614', distance:'45 miles'},
+                                            {name:'Michael Porter', phone:'555-4321', email:'mport1@gmail.com', address:'100 Plaza St. Saint Petersburg, FL 33614', distance:'46 miles'},
+                                            {name:'Andy Bloomfield', phone:'555-5678', email:'abloom1@gmail.com', address:'3151 Central Ave. Saint Petersburg, FL 33614', distance:'47 miles'},
+                                            {name:'Julie Moller', phone:'555-8765', email:'mol1978@gmail.com', address:'212 Dale Mabry. Saint Petersburg, FL 33614', distance:'48 miles'},
+                                            {name:'Mary Nielson', phone:'800-4237', email:'mary78@nelson.com', address:'15 11ST St. Saint Petersburg, FL 33614', distance:'49 miles'},
+                                            {name:'Mike Parker', phone:'555-4321', email:'mport78@gmail.com', address:'8 Plaza St. Saint Petersburg, FL 33614', distance:'51 miles'},
+                                            {name:'Adam Bloomberg', phone:'555-5678', email:'abloom78@gmail.com', address:'371 Central Ave. Saint Petersburg, FL 33614', distance:'21 miles'},
+                                            {name:'Julie Soho', phone:'555-8765', email:'1mol1978@gmail.com', address:'242 Dale Mabry. Saint Petersburg, FL 33614', distance:'55 miles'},
+                                            
+                                            {name:'Juliette Maryanne', phone:'555-5678', email:'1moore87@gmail.com', address:'122 Channelside St. Tampa, FL 33614', distance:'60 miles'}]">
+                    </div>
+
+                    <div ng-repeat="friend in friends | filter:searchText" id="searchTextResults">
+                    <ul class="list-group" id="pharm-record" style="float: left; clear: right; padding-right: 10px;">
+                      <li class="list-group-item list-group-item active">{{friend.name}}</li>
+                      <li class="list-group-item list-group-item"><span class="badge">{{friend.distance}}</span>{{friend.address}}</li>
+                      <li class="list-group-item list-group-item">{{friend.phone}}</li>
+                      <li class="list-group-item list-group-item">{{friend.email}}</li>
+                    </ul>
+                    </div>
+                      
+                      
+
+                  </div>
+
+                      
+                </div>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- compiled and minified Bootstrap JavaScript -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        
+        <!-- Martins Tweet THIS Script -->
+        <script type="text/javascript" src="../_ms-js/tweet-this.js"></script>
+    </body>
+</html>
+

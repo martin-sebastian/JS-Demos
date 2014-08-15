@@ -1,0 +1,87 @@
+<div class="container"><br />
+            <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <p>{{message}}: <span id="status">Getting your location </span></p>
+            </div>
+            <!-- Main jumbotron for a primary marketing message or call to action -->
+              <div class="">
+                
+                <article></article>
+                  
+
+                </div> <!-- End jumbotron -->
+            <br />
+                <div class="panel panel-default">
+                  <!-- Default panel contents -->
+                  <div class="panel-heading">
+                       <div class="row">
+                      <div class="col-lg-12">
+                        <div class="input-group">
+                          <input ng-model="searchText" placeholder="Filter by name, phone, email, distance, or address..." type="text" class="form-control">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button>
+                          </span>
+                        </div><!-- /input-group -->
+                      </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                      </div>
+                  <div class="panel-body">
+                      
+                    <div ng-init="friends = [{name:'John Smith', phone:'555-1276', email:'john@smith.com', address:'105 Main St. Tampa, FL 33614', distance:'1 mile'},
+                                            {name:'Mary Nelson', phone:'800-4237', email:'mary@nelson.com', address:'15 1ST St. Tampa, FL 33614', distance:'3 miles'},
+                                            {name:'Mike Porter', phone:'555-4321', email:'mport@gmail.com', address:'1 Plaza St. Tampa, FL 33614', distance:'5 miles'},
+                                            {name:'Adam Bloomfield', phone:'555-5678', email:'abloom@gmail.com', address:'311 Central Ave. Tampa, FL 33614', distance:'7 miles'},
+                                            {name:'Julie Molenski', phone:'555-8765', email:'mol1978@gmail.com', address:'222 Dale Mabry. Tampa, FL 33614', distance:'9 miles'},
+                                            {name:'Mary Nelson', phone:'800-4237', email:'mary1@nelson.com', address:'15 1ST St. Tampa, FL 33614', distance:'2 miles'},
+                                            {name:'Michael Porter', phone:'555-4321', email:'mport1@gmail.com', address:'100 Plaza St. Tampa, FL 33614', distance:'3 miles'},
+                                            {name:'Andy Bloomfield', phone:'555-5678', email:'abloom1@gmail.com', address:'3151 Central Ave. Tampa, FL 33614', distance:'4 miles'},
+                                            {name:'Julie Moller', phone:'555-8765', email:'mol1978@gmail.com', address:'212 Dale Mabry. Tampa, FL 33614', distance:'6 miles'},
+                                            {name:'Mary Nielson', phone:'800-4237', email:'mary78@nelson.com', address:'15 11ST St. Tampa, FL 33614', distance:'8 miles'},
+                                            {name:'Mike Parker', phone:'555-4321', email:'mport78@gmail.com', address:'8 Plaza St. Tampa, FL 33614', distance:'10 miles'},
+                                            {name:'Adam Bloomberg', phone:'555-5678', email:'abloom78@gmail.com', address:'371 Central Ave. Tampa, FL 33614', distance:'12 miles'},
+                                            {name:'Julie Soho', phone:'555-8765', email:'1mol1978@gmail.com', address:'242 Dale Mabry. Tampa, FL 33614', distance:'11 miles'},
+                                            {name:'Mary Nelson', phone:'800-4237', email:'mary@nelson.com', address:'15 1ST St. Clearwater, FL 33614', distance:'7 miles'},
+                                            {name:'Mike Porter', phone:'555-4321', email:'mport@gmail.com', address:'1 Plaza St. Clearwater, FL 33614', distance:'2 miles'},
+                                            {name:'Adam Bloomfield', phone:'555-5678', email:'abloom@gmail.com', address:'311 Central Ave. Clearwater, FL 33614', distance:'15 miles'},
+                                            {name:'Julie Molenski', phone:'555-8765', email:'mol1978@gmail.com', address:'222 Dale Mabry. Clearwater, FL 33614', distance:'19 miles'},
+                                            {name:'Mary Nelson', phone:'800-4237', email:'mary1@nelson.com', address:'15 1ST St. Clearwater, FL 33614', distance:'17 miles'},
+                                            {name:'Michael Porter', phone:'555-4321', email:'mport1@gmail.com', address:'100 Plaza St. Clearwater, FL 33614', distance:'5 miles'},
+                                            {name:'Andy Bloomfield', phone:'555-5678', email:'abloom1@gmail.com', address:'3151 Central Ave. Clearwater, FL 33614', distance:'22 miles'},
+                                            {name:'Julie Moller', phone:'555-8765', email:'mol1978@gmail.com', address:'212 Dale Mabry. Clearwater, FL 33614', distance:'23 miles'},
+                                            {name:'Mary Nielson', phone:'800-4237', email:'mary78@nelson.com', address:'15 11ST St. Clearwater, FL 33614', distance:'24 miles'},
+                                            {name:'Mike Parker', phone:'555-4321', email:'mport78@gmail.com', address:'8 Plaza St. Clearwater, FL 33614', distance:'34 miles'},
+                                            {name:'Adam Bloomberg', phone:'555-5678', email:'abloom78@gmail.com', address:'371 Central Ave. Clearwater, FL 33614', distance:'39 miles'},
+                                            {name:'Julie Soho', phone:'555-8765', email:'1mol1978@gmail.com', address:'242 Dale Mabry. Clearwater, FL 33614', distance:'2 miles'},
+                                  
+                                            {name:'Mary Nelson', phone:'800-4237', email:'mary@nelson.com', address:'15 1ST St. Saint Petersburg, FL 33614', distance:'28 miles'},
+                                            {name:'Mike Porter', phone:'555-4321', email:'mport@gmail.com', address:'1 Plaza St. Saint Petersburg, FL 33614', distance:'34 miles'},
+                                            {name:'Adam Bloomfield', phone:'555-5678', email:'abloom@gmail.com', address:'311 Central Ave. Saint Petersburg, FL 33614', distance:'43 miles'},
+                                            {name:'Julie Molenski', phone:'555-8765', email:'mol1978@gmail.com', address:'222 Dale Mabry. Saint Petersburg, FL 33614', distance:'44 miles'},
+                                            {name:'Mary Nelson', phone:'800-4237', email:'mary1@nelson.com', address:'15 1ST St. Saint Petersburg, FL 33614', distance:'45 miles'},
+                                            {name:'Michael Porter', phone:'555-4321', email:'mport1@gmail.com', address:'100 Plaza St. Saint Petersburg, FL 33614', distance:'46 miles'},
+                                            {name:'Andy Bloomfield', phone:'555-5678', email:'abloom1@gmail.com', address:'3151 Central Ave. Saint Petersburg, FL 33614', distance:'47 miles'},
+                                            {name:'Julie Moller', phone:'555-8765', email:'mol1978@gmail.com', address:'212 Dale Mabry. Saint Petersburg, FL 33614', distance:'48 miles'},
+                                            {name:'Mary Nielson', phone:'800-4237', email:'mary78@nelson.com', address:'15 11ST St. Saint Petersburg, FL 33614', distance:'49 miles'},
+                                            {name:'Mike Parker', phone:'555-4321', email:'mport78@gmail.com', address:'8 Plaza St. Saint Petersburg, FL 33614', distance:'51 miles'},
+                                            {name:'Adam Bloomberg', phone:'555-5678', email:'abloom78@gmail.com', address:'371 Central Ave. Saint Petersburg, FL 33614', distance:'21 miles'},
+                                            {name:'Julie Soho', phone:'555-8765', email:'1mol1978@gmail.com', address:'242 Dale Mabry. Saint Petersburg, FL 33614', distance:'55 miles'},
+                                            
+                                            {name:'Juliette Maryanne', phone:'555-5678', email:'1moore87@gmail.com', address:'122 Channelside St. Tampa, FL 33614', distance:'60 miles'}]">
+                    </div>
+
+                    <div ng-repeat="friend in friends | filter:searchText" id="searchTextResults">
+                    <ul class="list-group" id="pharm-record" style="float: left; clear: right; padding-right: 10px;">
+                      <li class="list-group-item list-group-item active">{{friend.name}}</li>
+                      <li class="list-group-item list-group-item"><span class="badge">{{friend.distance}}</span>{{friend.address}}</li>
+                      <li class="list-group-item list-group-item">{{friend.phone}}</li>
+                      <li class="list-group-item list-group-item">{{friend.email}}</li>
+                    </ul>
+                    </div>
+                      
+                      
+
+                  </div>
+
+                      
+                </div>
+        </div>

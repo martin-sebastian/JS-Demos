@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Martin Sebastian Skrzypczak">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Angular JS Demo App by Martin Sebastian</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" rel="stylesheet">
+      
+    <script data-require="angular.js@1.2.0-rc3" data-semver="1.2.0-rc3" src="http://code.angularjs.org/1.2.0-rc.3/angular.min.js"></script>
+    <script data-require="angular-router@1.2.0-rc1" data-semver="1.2.0-rc1" src="http://code.angularjs.org/1.2.0rc1/angular-route.js"></script>
+    <script src="app.js"></script>
+      
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+    <!-- Custom styles for this template -->
+    <style>body{padding-top:50px;}.starter-template{padding:40px 15px;text-align:center;}</style>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Martins CSS -->
+    <link href="../_ms-css/angular.css" rel="stylesheet">
+      
+  </head>
+
+  <body ng-app="myApp">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Martin<span style="color: #CCC;">Sebastian</span>_></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/">Home</a></li>
+                        <li><a href="#/services">Pharmacy Locator</a></li>
+                        <li><a href="#/clients">Clients</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+    <div ng-view=""></div>
+    <script>
+                    function success(position) {
+                      var s = document.querySelector('#status');
+
+                      if (s.className == 'success') {
+                        // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
+                        return;
+                      }
+
+                      s.innerHTML = "Thanks - Below are Pharmacists in your area!";
+                      s.className = 'success';
+
+                      var mapcanvas = document.createElement('div');
+                      mapcanvas.id = 'mapcanvas';
+                      mapcanvas.style.height = '200px';
+                      mapcanvas.style.width = '100%';
+
+                      document.querySelector('article').appendChild(mapcanvas);
+
+                      var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                      var myOptions = {
+                        zoom: 15,
+                        center: latlng,
+                        mapTypeControl: false,
+                        navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                      };
+                      var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+
+                      var marker = new google.maps.Marker({
+                          position: latlng, 
+                          map: map, 
+                          title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
+                      });
+                    }
+
+                    function error(msg) {
+                      var s = document.querySelector('#status');
+                      s.innerHTML = typeof msg == 'string' ? msg : "failed";
+                      s.className = 'fail';
+
+                      // console.log(arguments);
+                    }
+
+                    if (navigator.geolocation) {
+                      navigator.geolocation.getCurrentPosition(success, error);
+                    } else {
+                      error('not supported');
+                    }
+
+                    </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- compiled and minified Bootstrap JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- Martins Tweet THIS Script -->
+    <script type="text/javascript" src="../_ms-js/tweet-this.js"></script>
+  </body>
+
+</html>
