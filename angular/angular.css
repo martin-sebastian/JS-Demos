@@ -70,7 +70,7 @@ td  {
 }
 .jumbotron {
     background-image: url(../_img/pharmacist.jpg);
-    background-position: 50% 50%;
+    background-position: 50% 0%;
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
