@@ -7,17 +7,14 @@ html         { overflow-y:hidden; }
 	width:100%; 
 }
 
-.page h1 	{ font-size:60px; }
-.page a     { margin-top:50px; }
-#about      { color:#333; position:absolute; text-align:center; top:50px; width:100%; }
 
 /* PAGES
 ============================================================================= */
-.page-home 		{ background:#EEE; color:#333; }
-.page-services 	{ background:#EEE; color:#333; }
-.page-contact 	{ background: #EEE; color:#333; }
+.page-home 		   { background:#EEE; color:#333; }
+.page-services 	    { background:#EEE; color:#333; }
+.page-contact 	     { background: #EEE; color:#333; }
 .page-workerscomp 	{ background:#EEE; color:#333; }
-.page-settings 	{ background: #EEE; color:#333; }
+.page-settings 	    { background: #EEE; color:#333; }
 
 /* ANIMATIONS
 ============================================================================= */
