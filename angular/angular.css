@@ -23,8 +23,12 @@ body  {
 @media (max-width: 500px) {
   body { font-size: small; }
 }
+h1.my-name img  {
+  width: 250px;
+}
 h1.my-name  {
-  font-size: xxx-large;
+  font-size: 96px;
+    text-align: left;
 }
 @media (max-width: 1000px) {
   h1.my-name { font-size: xx-large; }
