@@ -89,10 +89,10 @@ td  {
     opacity: 0.8;
 }
 @media (max-width: 1000px) {
-  #angular-icon { width: 160px; }
+  .angular-icon { width: 160px; }
 }
 @media (max-width: 500px) {
-  #angular-icon { width: 70px; }
+  .angular-icon { width: 70px; }
 }
 #mapcanvas {
     border-radius: 5px;
