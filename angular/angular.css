@@ -80,19 +80,22 @@ td  {
     color: white;
     text-shadow: 0px 0px 0px #666;
 }
-.angular-icon {
+img.angular-icon {
     opacity: 0.2;
     width: 64px;
-    padding-top: 20px;
+    padding-top: 5px;
 }
-.angular-icon:hover {
+img.angular-icon:hover {
     opacity: 0.8;
 }
+#angular-icon {
+    width: 320px;
+}
 @media (max-width: 1000px) {
-  .angular-icon { width: 160px; }
+  #angular-icon { width: 160px; }
 }
 @media (max-width: 500px) {
-  .angular-icon { width: 70px; }
+  #angular-icon { width: 70px; }
 }
 #mapcanvas {
     border-radius: 5px;
