@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+
+<head>
+    <title>AngularJS: UI-Router Quick Start</title>
+    <!-- Bootstrap CSS -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="animation.css" rel="stylesheet">
+</head>
+
+<body class="container">
+<br>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#/">Animation Demo -></a>
+      <ul class="nav">
+        <li><a href="#/m">Martin</a></li>
+        <li><a href="#/s">Sebastian</a></li>
+          <li><a href="#/sk">Skrzypczak</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span12 ui-view-container">
+      <div class="well" ui-view></div>        
+    </div>
+  </div>         
+  
+  <!-- Angular -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+  <!-- Angular Animate -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-animate.js"></script>
+  <!-- UI-Router -->
+  <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+  
+  <!-- App Script -->
+  <script>
+    var myapp = angular.module('myapp', ["ui.router", "ngAnimate"])
+    myapp.config(function($stateProvider, $urlRouterProvider){    
+      $stateProvider
+        .state("a", {
+              url: "/",
+              template: '<h1>Choose from menu...</h1>'
+          })
+          .state("m", {
+              url: "/m",
+              template: '<h1>Martin</h1>'
+          })
+          .state("s", {
+              url: "/s",
+              template: '<h1>Sebastian</h1>'
+          })
+        .state("sk", {
+              url: "/sk",
+              template: '<h1>Skrzypczak</h1>'
+          })
+      
+      $urlRouterProvider.otherwise("/");
+    })
+  </script>
+
+</body>
+
+</html>

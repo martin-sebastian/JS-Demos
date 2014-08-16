@@ -1,1 +1,28 @@
-/* Styles go here */
+.ng-enter {
+    transition: 2.75s;
+    opacity: 0;
+}
+.ng-enter-active {
+    opacity: 1;
+}
+.ng-leave {
+    transition: 2.75s;
+    opacity: 1;
+}
+.ng-leave-active {
+    opacity: 0;
+}
+.sample-show-hide {
+  padding:10px;
+  border:1px solid black;
+  background:white;
+}
+
+.sample-show-hide {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+.sample-show-hide.ng-hide {
+  opacity:0;
+}

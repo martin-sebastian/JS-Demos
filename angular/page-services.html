@@ -52,7 +52,6 @@
                                             {name:'Mike Parker', phone:'555-4321', email:'mport78@gmail.com', address:'8 Plaza St. Clearwater, FL 33614', distance:'34 miles'},
                                             {name:'Adam Bloomberg', phone:'555-5678', email:'abloom78@gmail.com', address:'371 Central Ave. Clearwater, FL 33614', distance:'39 miles'},
                                             {name:'Julie Soho', phone:'555-8765', email:'1mol1978@gmail.com', address:'242 Dale Mabry. Clearwater, FL 33614', distance:'2 miles'},
-                                  
                                             {name:'Mary Nelson', phone:'800-4237', email:'mary@nelson.com', address:'15 1ST St. Saint Petersburg, FL 33614', distance:'28 miles'},
                                             {name:'Mike Porter', phone:'555-4321', email:'mport@gmail.com', address:'1 Plaza St. Saint Petersburg, FL 33614', distance:'34 miles'},
                                             {name:'Adam Bloomfield', phone:'555-5678', email:'abloom@gmail.com', address:'311 Central Ave. Saint Petersburg, FL 33614', distance:'43 miles'},
@@ -65,12 +64,11 @@
                                             {name:'Mike Parker', phone:'555-4321', email:'mport78@gmail.com', address:'8 Plaza St. Saint Petersburg, FL 33614', distance:'51 miles'},
                                             {name:'Adam Bloomberg', phone:'555-5678', email:'abloom78@gmail.com', address:'371 Central Ave. Saint Petersburg, FL 33614', distance:'21 miles'},
                                             {name:'Julie Soho', phone:'555-8765', email:'1mol1978@gmail.com', address:'242 Dale Mabry. Saint Petersburg, FL 33614', distance:'55 miles'},
-                                            
                                             {name:'Juliette Maryanne', phone:'555-5678', email:'1moore87@gmail.com', address:'122 Channelside St. Tampa, FL 33614', distance:'60 miles'}]">
                     </div>
 
                     <div ng-repeat="friend in friends | filter:searchText" id="searchTextResults">
-                    <ul class="list-group" id="pharm-record" style="float: left; clear: right; padding-right: 10px;">
+                    <ul class="list-group" id="pharm-record" style="float: left; clear: right; padding-right: 10px; height: 220px; border: solid 1px white;">
                       <li class="list-group-item list-group-item active">{{friend.name}}</li>
                       <li class="list-group-item list-group-item"><span class="badge">{{friend.distance}}</span>{{friend.address}}</li>
                       <li class="list-group-item list-group-item">{{friend.phone}}</li>
